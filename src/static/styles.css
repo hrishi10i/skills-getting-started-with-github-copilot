@@ -157,6 +157,9 @@ button:hover {
 }
 
 .participant-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   background: #eef2ff;
   color: #0f172a;
   padding: 6px 10px;
@@ -169,6 +172,30 @@ button:hover {
   color: #666;
   font-style: italic;
   font-size: 0.95rem;
+}
+
+/* Remove button inside participant pill */
+.participant-remove {
+  background: transparent;
+  border: none;
+  color: #c62828;
+  cursor: pointer;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0 6px;
+  border-radius: 50%;
+}
+
+.participant-remove:hover {
+  background: rgba(198,40,40,0.08);
+}
+
+.participant-email {
+  display: inline-block;
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 footer {

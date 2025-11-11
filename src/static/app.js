@@ -12,6 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Clear loading message
       activitiesList.innerHTML = "";
+      // Reset activity select so repeated calls don't duplicate options
+      activitySelect.innerHTML = '<option value="">-- Select an activity --</option>';
 
       // Populate activities list
       Object.entries(activities).forEach(([name, details]) => {
@@ -37,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         participantsTitle.className = "participants-title";
         participantsTitle.innerHTML = `<strong>Participants</strong>`;
         participantsDiv.appendChild(participantsTitle);
+
 
         const ul = document.createElement("ul");
         ul.className = "participants-list";
@@ -91,6 +94,8 @@ document.addEventListener("DOMContentLoaded", () => {
         messageDiv.textContent = result.message;
         messageDiv.className = "success";
         signupForm.reset();
+        // Refresh activities so the newly registered participant appears immediately
+        await fetchActivities();
       } else {
         messageDiv.textContent = result.detail || "An error occurred";
         messageDiv.className = "error";
